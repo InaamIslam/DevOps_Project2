@@ -1,4 +1,7 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, request
+import requests
+from application import app, db
+
 
 @app.route('/', methods=['GET','POST'])
 def index():
@@ -9,12 +12,10 @@ def index():
 
     price_network = str(city.text) + " " + str(activity.text) 
    
-
     price = request.post("http://service4:5003/price", data=price_network)
     
    
-  return render_template('index.html', 
-  title='Holiday Generator', city = city.text, 
+    return render_template('index.html', title='Holiday Generator', city = city.text, 
   activity=activity.text, price = price.text, price_network=price_network)
 
 
