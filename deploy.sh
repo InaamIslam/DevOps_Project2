@@ -16,11 +16,11 @@ docker network create service_1_network
 
 # Run containers 
 
-docker run -d -p 5000:5000 --name service_1 --network service_1_network service_1_server
+docker run -d -p 5000:5000 --name service_2_api --network service_1_network service_1_server
 
-docker run -d -p 5000:5000 --name service_1 --network service_1_network service_1_server
+docker run -d -p 5000:5000 --name service_3_api --network service_1_network service_1_server
 
-docker run -d -p 5000:5000 --name service_1 --network service_1_network service_1_server
+docker run -d -p 5000:5000 --name service_4_api --network service_1_network service_1_server
 
 
 
