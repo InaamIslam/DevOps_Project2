@@ -1,6 +1,6 @@
 # DevOps_Project2
 
-## Week 9 Practical Project
+## Random holiday generator
 
 ## Author
 ### Inaam Islam
