@@ -5,7 +5,7 @@ from application import app
 @app.route('/activity', methods=['GET'])
 def activity():
 
-  activities = ["Paintballing", "Surfing", "Scuba Diving", "Skiing"]
+  activities = ["Paintballing", "Surfing", "Snorkelling", "Skiing"]
   activity = random.choice(activities)
 
   return Response(activity, mimetype="text/plain")
