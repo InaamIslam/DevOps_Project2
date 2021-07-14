@@ -1,8 +1,8 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, Response
 import random 
 from application import app
 
-@app.route('/', methods=['GET'])
+@app.route('/activity', methods=['GET'])
 def activity():
 
   activities = ["Paintballing", "Surfing", "Scuba Diving", "Skiing"]
