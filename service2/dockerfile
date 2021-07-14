@@ -8,4 +8,4 @@ COPY . .
 
 EXPOSE 5000
 
-ENTRYPOINT ["python", "app:app"]
+ENTRYPOINT ["python3", "app.py"]
