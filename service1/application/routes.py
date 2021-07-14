@@ -3,6 +3,9 @@ import requests
 from application import app, db
 
 
+
+
+
 @app.route('/', methods=['GET','POST'])
 def index():
     #get the name of the city 
