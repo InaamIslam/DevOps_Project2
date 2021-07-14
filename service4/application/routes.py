@@ -7,51 +7,48 @@ from application import app
 
 def price(): 
 
-        data_sent = request.data.decode('utf-8')
-        data = data_sent.split(" ")
-        activity = data[0]
-        city = data[1]
+        price_network = request.data.decode('utf-8')
+        data = price_network.split(" ")
+        activity = data[1]
+        city = data[0]
 
         if city == "London":
                 if activity == 'Paintballing':
                         price = '£200 - £400'
                 elif activity == 'Surfing':
                         price = '£400 - £800'
-                elif activity == 'Scuba Diving':
+                elif activity == 'Snorkelling':
                         price = '£800 - £1000'
-                elif activity == 'Scuba Diving':
+                elif activity == 'Skiing':
                         price = '£1000 - £2000'
         elif city == "Barcelona":
                 if activity == 'Paintballing':
                         price = '£200 - £400'
                 elif activity == 'Surfing':
                         price = '£400 - £800'
-                elif activity == 'Scuba Diving':
+                elif activity == 'Snorkelling':
                         price = '£800 - £1000'
-                elif activity == 'Scuba Diving':
+                elif activity == 'Skiing':
                         price = '£1000 - £2000'
         elif city == "Milan":
                 if activity == 'Paintballing':
                         price = '£200 - £400'
                 elif activity == 'Surfing':
                         price = '£400 - £800'
-                elif activity == 'Scuba Diving':
+                elif activity == 'Snorkelling':
                         price = '£800 - £1000'
-                elif activity == 'Scuba Diving':
+                elif activity == 'Skiing':
                         price = '£1000 - £2000'
         elif city == "Tokyo":
                 if activity == 'Paintballing':
                         price = '£200 - £400'
                 elif activity == 'Surfing':
                         price = '£400 - £800'
-                elif activity == 'Scuba Diving':
+                elif activity == 'Snorkelling':
                         price = '£800 - £1000'
-                elif activity == 'Scuba Diving':
+                elif activity == 'Skiing':
                         price = '£1000 - £2000'
-                
-        else:
-                return "Random Holiday could not be generated" 
-
+        
         return Response(price, mimetype="text/plain")
 
 

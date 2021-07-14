@@ -12,7 +12,7 @@ def index():
 
     price_network = str(city.text) + " " + str(activity.text) 
    
-    price = request.post("http://service_4_api:5000/price", data=price_network)
+    price = requests.post("http://service_4_api:5000/price", data=price_network)
     
    
     return render_template('index.html', title='Holiday Generator', city = city.text, 
