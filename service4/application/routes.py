@@ -14,40 +14,40 @@ def price():
 
         if city == "London":
                 if activity == 'Paintballing':
-                        price = '£200 - £400'
+                        price = '200'
                 elif activity == 'Surfing':
-                        price = '£400 - £800'
+                        price = '400'
                 elif activity == 'Snorkelling':
-                        price = '£800 - £1000'
+                        price = '600'
                 elif activity == 'Skiing':
-                        price = '£1000 - £2000'
+                        price = '800'
         elif city == "Barcelona":
                 if activity == 'Paintballing':
-                        price = '£200 - £400'
+                        price = '200'
                 elif activity == 'Surfing':
-                        price = '£400 - £800'
+                        price = '400'
                 elif activity == 'Snorkelling':
-                        price = '£800 - £1000'
+                        price = '600'
                 elif activity == 'Skiing':
-                        price = '£1000 - £2000'
+                        price = '800'
         elif city == "Milan":
                 if activity == 'Paintballing':
-                        price = '£200 - £400'
+                        price = '200'
                 elif activity == 'Surfing':
-                        price = '£400 - £800'
+                        price = '400'
                 elif activity == 'Snorkelling':
-                        price = '£800 - £1000'
+                        price = '600'
                 elif activity == 'Skiing':
-                        price = '£1000 - £2000'
+                        price = '800'
         elif city == "Tokyo":
                 if activity == 'Paintballing':
-                        price = '£200 - £400'
+                        price = '200'
                 elif activity == 'Surfing':
-                        price = '£400 - £800'
+                        price = '400'
                 elif activity == 'Snorkelling':
-                        price = '£800 - £1000'
+                        price = '600'
                 elif activity == 'Skiing':
-                        price = '£1000 - £2000'
+                        price = '800'
         
         return Response(price, mimetype="text/plain")
 
