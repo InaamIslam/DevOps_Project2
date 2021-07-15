@@ -5,31 +5,43 @@ from unittest.mock import patch
 
 class TestBase(TestCase):
     def create_app(self):
+        app.config.update(DEBUG=True)
         return app
 
-class TestResponse(TestBase):
+class TestService1(TestBase):
+    def test_all_cities(self):
+        for _ in range(20):
+            response = self.client.get(url_for('city'))
+            self.assertIn(response.data.decode("utf-8"),["London", "Barcelona", "Milan", "Tokyo"])
 
-    def test_city(self):
-            with patch('random.randrange') as s:
-                s.return_value = 0
-                response = self.client.get(url_for('city'))
-                self.assertIn(b'London', response.data)
+class TestService1(TestBase):
+    def test_London(self):
+        with patch('random.choice') as s:
+            s.return_value = 'London'
+            response = self.client.get(url_for('city'))
+            self.assertEqual(response.status_code, 200)
+            self.assertEqual(b'London', response.data)
 
-    def test_city(self):
-            with patch('random.randrange') as s:
-                s.return_value = 1
-                response = self.client.get(url_for('city'))
-                self.assertIn(b'Barcelona', response.data)
+    def test_Barcelona(self):
+        with patch('random.choice') as s:
+            s.return_value = 'Barcelona'
+            response = self.client.get(url_for('city'))
+            self.assertEqual(response.status_code, 200)
+            self.assertIn(b'Barcelona', response.data)
 
-    def test_city(self):
-            with patch('random.randrange') as s:
-                s.return_value = 2
-                response = self.client.get(url_for('city'))
-                self.assertIn(b'Milan', response.data)
+    def test_Milan(self):
+        with patch('random.choice') as s:
+            s.return_value = 'Milan'
+            response = self.client.get(url_for('city'))
+            self.assertEqual(response.status_code, 200)
+            self.assertIn(b'Milan', response.data)
+    
+    def test_Tokyo(self):
+        with patch('random.choice') as s:
+            s.return_value = 'Tokyo'
+            response = self.client.get(url_for('city'))
+            self.assertEqual(response.status_code, 200)
+            self.assertIn(b'Tokyo', response.data)
 
-    def test_city(self):
-            with patch('random.randrange') as s:
-                s.return_value = 3
-                response = self.client.get(url_for('city'))
-                self.assertIn(b'Tokyo', response.data)
+
    
