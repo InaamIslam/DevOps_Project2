@@ -18,9 +18,9 @@ def index():
     last_3_holidays = holiday_plan.query.all()
     db.session.add(
       holiday_plan(
-        city = city.text,
-        activity = activity.text,
-        price = price.text
+          city = city.text,
+          activity = activity.text,
+          price = price.text
       )
     )
     db.session.commit()
