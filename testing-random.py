@@ -20,3 +20,27 @@
 #         response = self.client.get(url_for('index'))
 #         # self.assertEqual(response.status_code, 200)
 #         self.assertIn("The total cost of your holiday will be between £200 - £400", response.data)
+
+#  def test_activity(self):
+#             with patch('random.randrange') as s:
+#                 s.return_value = 0
+#                 response = self.client.get(url_for('activity'))
+#                 self.assertIn(b'Paintballing', response.data)
+
+#     def test_activity(self):
+#             with patch('random.randrange') as s:
+#                 s.return_value = 1
+#                 response = self.client.get(url_for('activity'))
+#                 self.assertIn(b'Paintballing', response.data)
+    
+#     def test_activity(self):
+#             with patch('random.randrange') as s:
+#                 s.return_value = 2
+#                 response = self.client.get(url_for('activity'))
+#                 self.assertIn(b'Paintballing', response.data)
+
+#     def test_activity(self):
+#             with patch('random.randrange') as s:
+#                 s.return_value = 3
+#                 response = self.client.get(url_for('activity'))
+#                 self.assertIn(b'Paintballing', response.data)

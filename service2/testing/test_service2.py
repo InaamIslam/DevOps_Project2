@@ -8,13 +8,13 @@ class TestBase(TestCase):
         app.config.update(DEBUG=True)
         return app
 
-class TestService1(TestBase):
+class TestService2(TestBase):
     def test_all_cities(self):
         for _ in range(20):
             response = self.client.get(url_for('city'))
             self.assertIn(response.data.decode("utf-8"),["London", "Barcelona", "Milan", "Tokyo"])
 
-class TestService1(TestBase):
+class TestService2(TestBase):
     def test_London(self):
         with patch('random.choice') as s:
             s.return_value = 'London'
