@@ -1,6 +1,7 @@
 from flask import Flask, render_template, request
 import requests
 from application import app, db
+from models import holiday_plan
 
 
 @app.route('/', methods=['GET','POST'])
@@ -14,9 +15,21 @@ def index():
    
     price = requests.post("http://service_4_api:5000/price", data=price_network)
     
+    last_3_holidays = holiday_plan.query.all()
+    db.session.add(
+      holiday_plan(
+        city = city.text,
+        activity = activity.text,
+        price = price.text
+      )
+    )
+    db.session.commit()
    
-    return render_template('index.html', title='Holiday Generator', city = city.text, 
-  activity=activity.text, price = price.text, price_network=price_network)
+    return render_template('index.html', title='Holiday Generator', 
+    city = city.text, 
+    activity=activity.text, price = price.text, 
+    price_network=price_network, 
+    last_3_holidays=last_3_holidays)
 
 
 
