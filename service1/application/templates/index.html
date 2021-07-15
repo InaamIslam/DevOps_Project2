@@ -21,14 +21,15 @@
                 <button>Generate</button>
         </div></a>
         <br>
-        <h2>The last 3 holidays generates</h2>
+        <h2>The last 3 holidays generated</h2>
         <br>
         <p>
 
-            {% for holiday_plan in last_3_holidays}
+            {% for holiday_plan in last_3_holidays %}
             {{ city }} , {{activity}}, {{price}} GBP
+            <br>
             {% endfor %}
-         <br>
+         
         </p>
 
     </div>

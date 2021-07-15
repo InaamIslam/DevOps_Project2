@@ -1,8 +1,8 @@
 from flask import Flask, render_template, request
 import requests
 from application import app, db
-from models import holiday_plan
-
+from application.models import holiday_plan
+from sqlalchemy import desc
 
 @app.route('/', methods=['GET','POST'])
 def index():
@@ -15,7 +15,7 @@ def index():
    
     price = requests.post("http://service_4_api:5000/price", data=price_network)
     
-    last_3_holidays = holiday_plan.query.all()
+    last_3_holidays = holiday_plan.query.order_by(desc(holiday_plan.id)).limit(3).all()
     db.session.add(
       holiday_plan(
           city = city.text,
