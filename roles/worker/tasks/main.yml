@@ -6,4 +6,8 @@
     state: join
     remote_addrs: "{{ inventory_hostname }}" 
     advertise_addr: ['swarm-manager:2377'] #need to find way to parametererise 
-    join_token: {{ hostvars['swarm-manager']['swarm_info']['swarm_facts']['JoinTokens']['Worker'] }}
+    join_token: "{{ hostvars[groups['managers'][0]]['swarm_info']['swarm_facts']['JoinTokens']['Worker'] }}"
+
+# line 8  ['swarm-manager:2377']
+
+# line 9 hostvars['swarm-manager']

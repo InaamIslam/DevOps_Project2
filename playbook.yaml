@@ -1,12 +1,12 @@
 - hosts: all
   become: yes
   roles:
-  - all
-- hosts: swarm manager
+  - common
+- hosts: swarm-manager
   become: yes
   roles:
   - manager
-- hosts: swarm worker
+- hosts: swarm-worker
   become: yes
   roles:
   - worker

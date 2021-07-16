@@ -3,6 +3,5 @@
 - name: Initialise the Swarm
   community.general.docker_swarm:
     state: present
-#get swarm info
-register: swarm_info 
-#generate token 
+  register: swarm_info 
+
