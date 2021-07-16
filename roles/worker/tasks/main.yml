@@ -1,2 +1,9 @@
 ---
 # tasks file for worker
+
+- name: Join Swarm as a worker
+  community.general.docker_swarm:
+    state: join
+    remote_addrs: "{{ inventory_hostname }}" 
+    advertise_addr: ['swarm-manager:2377'] #need to find way to parametererise 
+    join_token: {{ hostvars['swarm-manager']['swarm_info']['swarm_facts']['JoinTokens']['Worker'] }}

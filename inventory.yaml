@@ -1,8 +1,7 @@
 all:
+  hosts: 34.142.64.228
   vars:
-  hosts: 
-    34.142.64.228
-    ansible_user: Inaam
+    ansible_user: master
     ansible_ssh_private_key_file: "~/.ssh/id_rsa"
     ansible_ssh_common_args: '-o StrictHostKeyChecking=no'
   
