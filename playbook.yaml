@@ -1,5 +1,15 @@
 - hosts: all
-  become : true
+  become: yes
+  roles:
+  - all
+- hosts: swarm manager
+  become: yes
+  roles:
+  - manager
+- hosts: swarm worker
+  become: yes
+  roles:
+  - worker
   
 
 

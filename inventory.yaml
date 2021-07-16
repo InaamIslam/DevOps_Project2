@@ -7,3 +7,17 @@ all:
   
 
 
+all:
+  hosts:
+    34.142.64.228
+  
+  children:
+    webservers:
+      hosts:
+        foo.example.com:
+        bar.example.com:
+    dbservers:
+      hosts:
+        one.example.com:
+        two.example.com:
+        three.example.com:
