@@ -4,10 +4,19 @@
 - name: Join Swarm as a worker
   community.general.docker_swarm:
     state: join
-    remote_addrs: "{{ inventory_hostname }}" 
-    advertise_addr: ['swarm-manager:2377'] #need to find way to parametererise 
+    remote_addrs: [ "{{ hostvars['manager']['ansible_default_ipv4']['address'] }}:2377" ]
+    advertise_addr: "{{ inventory_hostname }}"
     join_token: "{{ hostvars[groups['managers'][0]]['swarm_info']['swarm_facts']['JoinTokens']['Worker'] }}"
+
+# - name: Join Swarm as a worker
+#   community.general.docker_swarm:
+#     state: join
+#     remote_addrs: ['managers:2377']
+#     advertise_addr: "{{ inventory_hostname }}"  #need to find way to parametererise 
+#     join_token: "{{ hostvars[groups['managers'][0]]['swarm_info']['swarm_facts']['JoinTokens']['Worker'] }}"
 
 # line 8  ['swarm-manager:2377']
 
 # line 9 hostvars['swarm-manager']
+
+# "{{ inventory_hostname }}" 

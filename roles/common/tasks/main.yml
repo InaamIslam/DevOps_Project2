@@ -5,7 +5,12 @@
     - 'ca-certificates'
     - curl 
     - gnupg 
+    - 'python3-pip'
+    - 'virtualenv'
+    - 'python3-setuptools'
+    - 'python3'
     - lsb-release
+    state: latest
     update_cache: True  
 - name: Add Docker GPG Key
   apt_key: 

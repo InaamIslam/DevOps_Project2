@@ -2,11 +2,11 @@
   become: yes
   roles:
   - common
-- hosts: swarm-manager
+- hosts: managers
   become: yes
   roles:
   - manager
-- hosts: swarm-worker
+- hosts: workers
   become: yes
   roles:
   - worker
