@@ -46,15 +46,14 @@
     name: Inaam
     groups: docker 
     append: True
-
-# - name: Check current docker-compose version.
-#   command: docker-compose --version
-#   register: docker_compose_current_version
-#   changed_when: false
-#   failed_when: false
-# - name: Install Docker Compose (if configured).
-#   get_url:
-#     url: https://github.com/docker/compose/releases/download/1.26.0/docker-compose-Linux-x86_64
-#     dest: /usr/local/bin/docker-compose
-#     mode: 0755
+- name: Check current docker-compose version.
+  command: docker-compose --version
+  register: docker_compose_current_version
+  changed_when: false
+  failed_when: false
+- name: Install Docker Compose (if configured).
+  get_url:
+    url: https://github.com/docker/compose/releases/download/1.26.0/docker-compose-Linux-x86_64
+    dest: /usr/local/bin/docker-compose
+    mode: 0755
 
