@@ -1,4 +1,4 @@
-version: "3.8"
+version: "3.7"
 services:
     server1:
         container_name: random_holiday_service1
