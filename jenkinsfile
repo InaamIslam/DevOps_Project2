@@ -1,6 +1,17 @@
 pipeline{
         agent any
+        environement {
+            DOCKER_USERNAME = credentials('DOCKER_USERNAME')
+            DOCKER_PASSWORD = credentials('DOCKER_PASSWORD')
+            install = 'false'
+            DATABASE_URI = credentials('DATABASE_URI') 
+        }
         stages { 
+            stage('Setup & Installations'){
+                steps{
+                    sh "./scripts/setup.sh"
+                }
+            }
             stage('Testing'){
                 steps{
                     sh "./scripts/test.sh"
