@@ -2,8 +2,8 @@ version: "3.7"
 services:
     server1:
         container_name: random_holiday_service1
-        image: inaamiii/random_holiday_service1
         build: ./service1
+        image: inaamiii/random_holiday_service1
         ports: 
         - published: 5000
           target: 5000
@@ -19,8 +19,8 @@ services:
             replicas: 2
     server2:
         container_name: service_2_api
-        image: inaamiii/service_2_api
         build: ./service2
+        image: inaamiii/service_2_api
         ports:
             - target: 5001
               published: 5001
@@ -29,8 +29,8 @@ services:
             replicas: 2
     server3:
         container_name: service_3_api
-        image: inaamiii/service_3_api
         build: ./service3
+        image: inaamiii/service_3_api
         ports:
             - target: 5002
               published: 5002
@@ -39,8 +39,8 @@ services:
             replicas: 2
     server4:
         container_name: service_4_api
-        image: inaamiii/service_4_api
         build: ./service4
+        image: inaamiii/service_4_api
         ports:
             - target: 5003
               published: 5003
