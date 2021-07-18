@@ -6,13 +6,11 @@
 ### Inaam Islam
 
 ### Links
-- [Trello](https:
-- [Risk Assessment](https://
+- [Trello](https://trello.com/b/kFb089Jf/random-holiday-generator-start)
+- [Risk Assessment](https://docs.google.com/spreadsheets/d/14yRvZVZBuPhvAV8yGtDGZbKzVS5RcJnY/edit#gid=1358709700)
 
 ## Contents
 - [Brief](#brief)
-    - [Objective](#obj)
-    - [Requirements](#reqs)
     - [Project Approach](#approach)
 - [Testing](#test_)
     - [Service 1 test](#test_1)
