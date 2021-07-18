@@ -1,19 +1,20 @@
 pipeline{
         agent any
-        stages{
+        environment {
+        DOCKER_USERNAME = credentials('DOCKER_USERNAME')
+        DOCKER_PASSWORD = credentials('DOCKER_PASSWORD')
+        install = 'true'
+        DATABASE_URI = credentials('DATABASE_URI')
+        SECRET_KEY = credentials('SECRET_KEY')
+        stages { 
             stage('Testing'){
                 steps{
                     sh "./scripts/test.sh"
-        stages { 
+                }
+            }
             stage('Setup & Installations'){
                 steps{
                     sh "./scripts/setup.sh"
-
-                }
-            }
-            stage('Building Images'){
-                steps{
-                    sh "./scripts/build.sh"
                 }
             }
             stage('Build Images'){
@@ -31,7 +32,7 @@ pipeline{
                     sh "./scripts/deploy.sh"
                 }
             }
+        }  
 
-        }
+    }
 }
-
