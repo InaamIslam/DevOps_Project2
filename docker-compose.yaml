@@ -8,13 +8,13 @@ services:
         - published: 5000
           target: 5000
           protocol: tcp
-        depends_on: 
-            - service2
-            - service3
-            - service4
-        environment:
-            DATABASE_URI: ${DATABASE_URI}
-            SECRET_KEY: ${SECRET_KEY}
+        # depends_on: 
+        #     - service2
+        #     - service3
+        #     - service4
+        # environment:
+        #     DATABASE_URI: ${DATABASE_URI}
+        #     SECRET_KEY: ${SECRET_KEY}
         deploy:
             replicas: 2
     server2:
