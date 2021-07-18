@@ -7,7 +7,16 @@ services:
         ports: 
         - published: 5000
           target: 5000
-        
+          protocol: tcp
+        depends_on: 
+            - service2
+            - service3
+            - service4
+        environment:
+            DATABASE_URI: ${DATABASE_URI}
+            SECRET_KEY: ${SECRET_KEY}
+        deploy:
+            replicas: 2
     server2:
         container_name: service_2_api
         image: inaamiii/service_2_api
@@ -18,7 +27,6 @@ services:
               protocol: tcp
         deploy:
             replicas: 2
-
     server3:
         container_name: service_3_api
         image: inaamiii/service_3_api
@@ -29,8 +37,6 @@ services:
               protocol: tcp
         deploy:
             replicas: 2
-        
-
     server4:
         container_name: service_4_api
         image: inaamiii/service_4_api
@@ -41,6 +47,7 @@ services:
               protocol: tcp
         deploy:
             replicas: 2
+
     nginx:
     image: nginx:latest
     ports:
