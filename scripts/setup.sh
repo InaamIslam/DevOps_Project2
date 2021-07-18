@@ -11,5 +11,5 @@ echo 'PATH=$PATH:~/.local/bin' >> ~/.bashrc
 source ~/.bashrc
 sudo apt install python3-pip3 -y
 pip3 install --user ansible
-ansible --version
+# ansible --version
 docker login --username $DOCKER_USERNAME --password $DOCKER_PASSWORD
