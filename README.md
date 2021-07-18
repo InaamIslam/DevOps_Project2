@@ -40,7 +40,9 @@ The brief for the DevOps core practical project was to create a microservice app
 This project will involve concepts from previous training modules, including:
 
 -Software Development with Python
+
 -Continuous Integration
+
 -Cloud Fundamentals
 
 <a name="reqs"></a>
@@ -70,6 +72,7 @@ In order to fulfill the requirements of the project I chose to configure a micro
 **Service 1** is the Main service. Service 1 communicates with service 2, 3 and 4 and presists data to a MySQL database. The main service will perform a  **GET request on Service 2 and Service 3** and a **POST request on Service 4**. The responses attained from service 2, service 3 & service 4 are used by service 1 to display information to the user via HTML and Jinja2 templating. Furthermore, I configured the databse to allow the user to see the last three holidays that were genearted via a query to the database. 
 
 **routes located:  service1/application/routes.py**
+
 ```bash
 @app.route('/', methods=['GET','POST'])
 def index():
@@ -94,6 +97,7 @@ def index():
     price_network=price_network, 
     last_3_holidays=last_3_holidays)
 ```
+
 A generator button was included in the HTML file to allow users to generate a random holiday. 
 
 **routes located:  service1/application/templates/index.html**
@@ -106,5 +110,90 @@ This service generates a random city. There are 4 possible cities that can be ge
 
 
 **routes located:  service2/application/routes.py**
+
+```bash
+@app.route('/city', methods=['GET'])
+def city():
+
+  cities = ["London", "Barcelona", "Milan", "Tokyo"]
+  city = random.choice(cities)
+  return Response(city, mimetype="text/plain")
+```
+
+
+#### Service 3
+
+This service generates a random activity. There are 4 possible activities that can be generated. 
+
+```bash
+@app.route('/activity', methods=['GET'])
+def activity():
+
+  activities = ["Paintballing", "Surfing", "Snorkelling", "Skiing"]
+  activity = random.choice(activities)
+
+  return Response(activity, mimetype="text/plain")
+```
+
+#### Service 4
+
+Service 4 generates a random price for the Holiday based on the City and activity that were generated in Service 2 and Service 3 respectivley. Service 4 returns this price as a POST request to Service 1 which is then displayed to the user. 
+
+
+**routes located:  service4/application/routes.py**
+
+```bash
+@app.route('/price', methods=['GET', 'POST'])
+
+def price(): 
+
+        price_network = request.data.decode('utf-8')
+        data = price_network.split(" ")
+        activity = data[1]
+        city = data[0]
+
+        if city == "London":
+                if activity == 'Paintballing':
+                        price = '£200 - £400'
+                elif activity == 'Surfing':
+                        price = '£400 - £800'
+                elif activity == 'Snorkelling':
+                        price = '£800 - £1000'
+                elif activity == 'Skiing':
+                        price = '£1000 - £2000'
+        elif city == "Barcelona":
+                if activity == 'Paintballing':
+                        price = '£200 - £400'
+                elif activity == 'Surfing':
+                        price = '£400 - £800'
+                elif activity == 'Snorkelling':
+                        price = '£800 - £1000'
+                elif activity == 'Skiing':
+                        price = '£1000 - £2000'
+        elif city == "Milan":
+                if activity == 'Paintballing':
+                        price = '£200 - £400'
+                elif activity == 'Surfing':
+                        price = '£400 - £800'
+                elif activity == 'Snorkelling':
+                        price = '£800 - £1000'
+                elif activity == 'Skiing':
+                        price = '£1000 - £2000'
+        elif city == "Tokyo":
+                if activity == 'Paintballing':
+                        price = '£200 - £400'
+                elif activity == 'Surfing':
+                        price = '£400 - £800'
+                elif activity == 'Snorkelling':
+                        price = '£800 - £1000'
+                elif activity == 'Skiing':
+                        price = '£1000 - £2000'
+        
+        return Response(price, mimetype="text/plain")
+```
+
+<a name="test_"></a>
+## Testing
+The service in my application were tested using Python libaries Pytest and Unittest.mock.
 
 
