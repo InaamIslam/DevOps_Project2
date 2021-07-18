@@ -12,18 +12,35 @@ services:
         container_name: service_2_api
         image: inaamiii/service_2_api
         build: ./service2
-       
+        ports:
+            - target: 5001
+              published: 5001
+              protocol: tcp
+        deploy:
+            replicas: 2
 
     server3:
         container_name: service_3_api
         image: inaamiii/service_3_api
         build: ./service3
+        ports:
+            - target: 5002
+              published: 5002
+              protocol: tcp
+        deploy:
+            replicas: 2
         
 
     server4:
         container_name: service_4_api
         image: inaamiii/service_4_api
         build: ./service4
+        ports:
+            - target: 5003
+              published: 5003
+              protocol: tcp
+        deploy:
+            replicas: 2
 
     # nginx:
     # image: nginx:latest
