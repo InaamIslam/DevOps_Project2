@@ -1,5 +1,5 @@
 #! /bin/bash
-ssh -i ~/.ssh/ansible_id_rsa jenkins@ansible << EOF
+ssh -i ~/.ssh/ansible_id_rsa jenkins@jenkins << EOF
 sudo docker node ls
 git clone https://github.com/InaamIslam/DevOps_Project2.git
 cd DevOps_Project2

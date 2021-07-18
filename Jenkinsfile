@@ -4,9 +4,19 @@ pipeline{
             stage('Testing'){
                 steps{
                     sh "./scripts/test.sh"
+        stages { 
+            stage('Setup & Installations'){
+                steps{
+                    sh "./scripts/setup.sh"
+
                 }
             }
             stage('Building Images'){
+                steps{
+                    sh "./scripts/build.sh"
+                }
+            }
+            stage('Build Images'){
                 steps{
                     sh "./scripts/build.sh"
                 }
@@ -21,6 +31,7 @@ pipeline{
                     sh "./scripts/deploy.sh"
                 }
             }
+
         }
 }
-    
+
