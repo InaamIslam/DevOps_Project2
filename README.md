@@ -13,13 +13,14 @@
 - [Brief](#brief)
     - [Requirements](#reqs)
 - [Building the Application](#building)
+    - [Project Planning](#planning)
+    - [Services](#services)
     - [Front End](#front)
 - [Testing](#test_)
     - [Service 1 test](#test_1)
     - [Service 2 & 3 test](#test_2/3)
     - [Service 4 test](#test_4)
 - [Architecture](#arch)
-
     - [Container level architecture](#cla)
     - [Application Infrastructure](#appinf)
 - [Continous Integration Pipeline ](#ci)
@@ -52,20 +53,33 @@ Note that these are a minimum set of requirements and can be added onto during t
 The requirements of the project are as follows:
 
 -An Asana board (or equivalent Kanban board tech) with full expansion on tasks needed to complete the project.
-This could also provide a record of any issues or risks that you faced creating your project.
--An Application fully integrated using the Feature-Branch model into a Version Control System which will subsequently be built through a CI server and deployed to a cloud-based virtual machine.
--If a change is made to a code base, then Webhooks should be used so that Jenkins recreates and redeploys the changed application
--The project must follow the Service-oriented architecture that has been asked for.
--The project must be deployed using containerisation and an orchestration tool.
--As part of the project, you need to create an Ansible Playbook that will provision the environment that your application needs to run.
--The project must make use of a reverse proxy to make your application accessible to the user.
+This could also provide a record of any issues or risks that you faced creating your project.\
+-An Application fully integrated using the Feature-Branch model into a Version Control System which will subsequently be built through a CI server and deployed to a cloud-based virtual machine.\
+-If a change is made to a code base, then Webhooks should be used so that Jenkins recreates and redeploys the changed application\
+-The project must follow the Service-oriented architecture that has been asked for.\
+-The project must be deployed using containerisation and an orchestration tool.\
+-As part of the project, you need to create an Ansible Playbook that will provision the environment that your application needs to run.\
+-The project must make use of a reverse proxy to make your application accessible to the user.\
 
 
 <a name="building"></a>
 ### Building the Application
 In order to fulfill the requirements of the project I chose to configure a microservice application that would allow services generating random information to communicate and influence the outcomes in other servers. I had a number of diffrent ideas, but eventually settled with creating a Random Holiday Generator. 
 
-## Services 
+-
+
+<a name="planning"></a>
+### Project Planning
+
+The project planning was done through a Trello board. This consists of a Backlog, sprint, MOSCOW order of prioritisation as well as items to chekc on completion. Updates were made to this throughout development. 
+
+<img src="/documentation/trello.png" alt="" width="100%" height="100%"/>
+
+
+
+<a name="services"></a>
+### Services
+
 
 #### Service 1
 **Service 1** is the Main service. Service 1 communicates with service 2, 3 and 4 and presists data to a MySQL database. The main service will perform a  **GET request on Service 2 and Service 3** and a **POST request on Service 4**. The responses attained from service 2, service 3 & service 4 are used by service 1 to display information to the user via HTML and Jinja2 templating. Furthermore, I configured the databse to allow the user to see the last three holidays that were genearted via a query to the database. 
@@ -320,22 +334,29 @@ The jenkinsfile shows a 5 step process that would allow for the testing, install
 
 <img src="/documentation/cipipeline.png" alt="" width="100%" height="100%"/>
 
+<a name=risks></a>
+## Risk Assessment
+
+I considered a number of risks that could take place in the development and use of the application 
+
+<img src="/documentation/riskassessment.png" alt="" width="100%" height="100%"/>
+
 <a name="tech"></a>
 ## Technologies Utilised
 
-*VCS: GitHub\
-*Project Tracking: Trello\
-*Programming language: Python\
-*Framework: Flask\
-*Deployment: Gunicorn\
-*Database: GCP SQL Server\
-*CI Server: Jenkins\
-*Test Reporting: Pytest, unittest.mock\
-*Live Environment: GCP\
-*Containerization: Docker\
-*Configuration Management: Ansible\
-*Orchestration: Docker-compose\
-*Reverse proxy: Nginx\
+* VCS: GitHub\
+* Project Tracking: Trello\
+* Programming language: Python\
+* Framework: Flask\
+* Deployment: Gunicorn\
+* Database: GCP SQL Server\
+* CI Server: Jenkins\
+* Test Reporting: Pytest, unittest.mock\
+* Live Environment: GCP\
+* Containerization: Docker\
+* Configuration Management: Ansible\
+* Orchestration: Docker-compose\
+* Reverse proxy: Nginx\
 
 
 
