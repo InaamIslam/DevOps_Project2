@@ -19,8 +19,8 @@
     - [Service 2 & 3 test](#test_2/3)
     - [Service 4 test](#test_4)
 - [Architecture](#arch)
+
     - [Container level architecture](#cla)
-    - [Service-Orientated architecture](#soa) 
     - [Application Infrastructure](#appinf)
 - [Continous Integration Pipeline ](#ci)
 - [Risk Assessment](#risks)
@@ -291,48 +291,79 @@ class TestResponse(TestBase):
 ## Architecture
 A microservice application architectured through building objects & containerisation 
 
+<img src="/documentation/userservice1.png" alt="" width="50%" height="50%"/>
 
-
+This is an updated version. The applications connect on different ports for each of the 4 services, 5001, 5002, and 5003 respectivley.
+<img src="/documentation/userservice2.png" alt="" width="50%" height="50%"/>
 
 
 <a name="cla"></a>
 ### Container level architecture
 The container level architecture was designed as below:
 
-
-
-
-<a name="soa"></a>
-### User Journey | Service-Orientated architecture 
-Below is the service architecture of my application.
-
-
+<img src="/documentation/services.png" alt="" width="100%" height="100%"/>
 
 
 <a name="appinf"></a>
 ### Application Infrastructure
 
-
+<img src="/documentation/appinfrastructre.png" alt="" width="100%" height="100%"/>
 
 
 <a name="ci"></a>
 ## Continous Integration Pipeline 
 
+This is my final version for my CI pipeline. My cluster was confirgured with two nodes. Ansible and Jenins were installed in separate Virtual machines. A MySQL GCP instance was used for the Database. The pipeline allowed for a lean and agile approach to implementing the application. 
 
 
+The jenkinsfile shows a 5 step process that would allow for the testing, installation, configuration and deployment of the app. 
+
+<img src="/documentation/cipipeline.png" alt="" width="100%" height="100%"/>
 
 <a name="tech"></a>
 ## Technologies Utilised
 
+*VCS: GitHub
+*Project Tracking: Trello
+*Programming language: Python
+*Framework: Flask
+*Deployment: Gunicorn
+*Database: GCP SQL Server
+*CI Server: Jenkins
+*Test Reporting: Pytest, unittest.mock
+*Live Environment: GCP
+*Containerization: Docker
+*Configuration Management: Ansible
+*Orchestration: Docker-compose
+*Reverse proxy: Nginx
 
 
 
 
 <a name="suc"></a>
-## Thins that went well 
+## Things that went well 
+
+A number of things went well for me on this project:
+
+* Microservice Apllication
+    - I was able to develop the applicationa and containerise using Docker
+    - I was able to deploy this as part of a swarm using Docker Compose
+* Jenkins
+    - I was able to build, test, deploy and configure using Jenkins
+    - rolling updates were possible through webhooks and CI/CD
+* Linux
+    - User Administration
+    - Sudoers 
+    - SSH
 
 
 
 
 <a name="improve"></a>
-## Areas for improvement 
+## Areas for improvement:
+
+* NGINX -load balancer -This would have been useful but not entirley required as the Docker Swarm is able to load balance and so I decided to use NGINX as a reverse proxy only. 
+
+* Implementing the use of JSON to increase data parsing speed, and also as part of sending data between services. 
+
+* Adding an Email server into my Jenkins CI pipeline to send build notifications
