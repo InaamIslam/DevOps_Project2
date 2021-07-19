@@ -2,7 +2,7 @@
   become: yes
   roles:
   - common
-- hosts: swarmmanagers
+- hosts: managers
   become: yes
   roles:
   - manager
@@ -10,3 +10,6 @@
   become: yes
   roles:
   - worker
+  
+
+
