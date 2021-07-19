@@ -1,7 +1,6 @@
 #! /bin/bash
-scp -i ~/.ssh/ansible_id_rsa docker-compose.yaml jenkins@jenkins:/home/docker-compose.yaml
-
-ssh -i ~/.ssh/ansible_id_rsa jenkins@jenkins
+scp -o StrictHostKeyChecking=no -i ~/.ssh/ansible_id_rsa docker-compose.yaml jenkins@jenkins:/home/docker-compose.yaml
+ssh -o StrictHostKeyChecking=no -i ~/.ssh/ansible_id_rsa jenkins@jenkins
 << EOF
     export DATABASE_URI=${DATABASE_URI}
     export SECRET_KEY=${SECRET_KEY}
