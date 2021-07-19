@@ -323,19 +323,19 @@ The jenkinsfile shows a 5 step process that would allow for the testing, install
 <a name="tech"></a>
 ## Technologies Utilised
 
-*VCS: GitHub
-*Project Tracking: Trello
-*Programming language: Python
-*Framework: Flask
-*Deployment: Gunicorn
-*Database: GCP SQL Server
-*CI Server: Jenkins
-*Test Reporting: Pytest, unittest.mock
-*Live Environment: GCP
-*Containerization: Docker
-*Configuration Management: Ansible
-*Orchestration: Docker-compose
-*Reverse proxy: Nginx
+*VCS: GitHub\
+*Project Tracking: Trello\
+*Programming language: Python\
+*Framework: Flask\
+*Deployment: Gunicorn\
+*Database: GCP SQL Server\
+*CI Server: Jenkins\
+*Test Reporting: Pytest, unittest.mock\
+*Live Environment: GCP\
+*Containerization: Docker\
+*Configuration Management: Ansible\
+*Orchestration: Docker-compose\
+*Reverse proxy: Nginx\
 
 
 
