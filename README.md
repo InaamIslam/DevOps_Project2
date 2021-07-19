@@ -307,7 +307,7 @@ The container level architecture was designed as below:
 <a name="appinf"></a>
 ### Application Infrastructure
 
-<img src="/documentation/appinfrastructre.png" alt="" width="100%" height="100%"/>
+<img src="/documentation/appinfrastructure.png" alt="" width="100%" height="100%"/>
 
 
 <a name="ci"></a>
