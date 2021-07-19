@@ -18,8 +18,8 @@ services:
         build: ./service2
         image: inaamiii/service_2_api
         ports:
-            - target: 5001
-              published: 5001
+            - target: 5000
+              published: 5000
               protocol: tcp
         deploy:
             replicas: 2
@@ -28,8 +28,8 @@ services:
         build: ./service3
         image: inaamiii/service_3_api
         ports:
-            - target: 5002
-              published: 5002
+            - target: 5000
+              published: 5000
               protocol: tcp
         deploy:
             replicas: 2
@@ -38,8 +38,8 @@ services:
         build: ./service4
         image: inaamiii/service_4_api
         ports:
-            - target: 5003
-              published: 5003
+            - target: 5000
+              published: 5000
               protocol: tcp
         deploy:
             replicas: 2

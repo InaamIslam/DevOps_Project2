@@ -10,13 +10,13 @@ from sqlalchemy import desc
 @app.route('/', methods=['GET','POST'])
 def index():
     #get the name of the city 
-    city = requests.get("http://service_2_api:5001/city")
+    city = requests.get("http://service_2_api:5000/city")
     #get the activty 
-    activity = requests.get("http://service_3_api:5002/activity")
+    activity = requests.get("http://service_3_api:5000/activity")
 
     price_network = str(city.text) + " " + str(activity.text) 
    
-    price = requests.post("http://service_4_api:5003/price", data=price_network)
+    price = requests.post("http://service_4_api:5000/price", data=price_network)
     
     last_3_holidays = holiday_plan.query.order_by(desc(holiday_plan.id)).limit(3).all()
     db.session.add(
