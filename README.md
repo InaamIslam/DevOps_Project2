@@ -21,11 +21,11 @@
     - [Container level architecture](#cla)
     - [Service-Orientated architecture](#soa) 
     - [Application Infrastructure](#appinf)
-- [Continuous Integration pipeline](#ci)
+- [Continous Integration Pipeline ](#ci)
 - [Risk Assessment](#risks)
-- [Technologies used](#tech)
-- [Successes](#suc)
-- [Future Improvements](#improve)
+- [Technologies utilised](#tech)
+- [Things that went well](#suc)
+- [Areas for improvement ](#improve)
 
 <a name="brief"></a>
 ## Brief
@@ -278,28 +278,47 @@ class TestResponse(TestBase):
 ## Architecture
 A microservice application architectured through building objects & containerisation 
 
+
+
+
 <a name="cla"></a>
 ### Container level architecture
-Container level architecture was as follows:
+The container level architecture was designed as below:
+
+
+
 
 <a name="soa"></a>
-### Service-Orientated architecture 
+### User Journey | Service-Orientated architecture 
 Below is the service architecture of my application.
+
+
+
 
 <a name="appinf"></a>
 ### Application Infrastructure
-<img src="/documentation/infrastructure.png" alt="" width="100%" height="100%"/>
+
+
+
 
 <a name="ci"></a>
-## Continous Integration pipeline 
+## Continous Integration Pipeline 
+
+
 
 
 <a name="tech"></a>
-## Technologies Used
+## Technologies Utilised
+
+
+
 
 
 <a name="suc"></a>
-## Successes
+## Thins that went well 
+
+
+
 
 <a name="improve"></a>
-## Future Improvements
+## Areas for improvement 
