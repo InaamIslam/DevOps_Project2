@@ -197,8 +197,8 @@ def price():
 Examples of the front end that users will interact with 
 
 <img src="/documentation/frontend1.png" alt="" width="100%" height="100%"/>
-<img src="/documentation/frontend1.png" alt="" width="100%" height="100%"/>
-<img src="/documentation/frontend1.png" alt="" width="100%" height="100%"/>
+<img src="/documentation/frontend2.png" alt="" width="100%" height="100%"/>
+<img src="/documentation/frontend3.png" alt="" width="100%" height="100%"/>
 
 
 
