@@ -46,11 +46,11 @@ services:
     nginx:
         image: nginx:latest
         ports:
-             - target: 80
+            - target: 80
               published: 80
               protocol: tcp
         volumes:
-              - type: bind
+            - type: bind
               source: ./nginx.conf
               target: /etc/nginx.conf
      
