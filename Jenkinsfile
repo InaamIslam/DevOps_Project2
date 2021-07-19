@@ -4,8 +4,8 @@ pipeline{
         DOCKER_USERNAME = credentials('DOCKER_USERNAME')
         DOCKER_PASSWORD = credentials('DOCKER_PASSWORD')
         install = 'true'
-        // DATABASE_URI = credentials('DATABASE_URI')
-        // SECRET_KEY = credentials('SECRET_KEY')
+        DATABASE_URI = credentials('DATABASE_URI')
+        SECRET_KEY = credentials('SECRET_KEY')
         }
         stages{ 
             stage('Testing'){
