@@ -1,0 +1,7 @@
+
+#initialise swarm 
+- name: Initialise the Swarm
+  community.general.docker_swarm:
+    state: present
+  register: swarm_info 
+

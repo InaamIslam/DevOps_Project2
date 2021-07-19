@@ -1,0 +1,62 @@
+- name: Install Docker Dependencies 
+  apt:
+    pkg: 
+    - apt-transport-https 
+    - 'ca-certificates'
+    - curl 
+    - gnupg 
+    - 'python3-pip'
+    - 'virtualenv'
+    - 'python3-setuptools'
+    - 'python3'
+    - lsb-release
+    state: latest
+    update_cache: True  
+- name: Add Docker GPG Key
+  apt_key: 
+    url: https://download.docker.com/linux/ubuntu/gpg
+    state: present 
+- name: Add Docker APT Repository 
+  apt_repository: 
+    repo: deb [arch=amd64] https://download.docker.com/linux/ubuntu focal stable
+    state: present 
+- name: Install Docker Engine 
+  apt:
+    pkg:
+    - docker-ce
+    - docker-ce-cli 
+    - ca-certificates 
+    - containerd.io
+    update_cache: True
+- name: Add Ubunutu User to Docker group 
+  ansible.builtin.user:
+    name: Inaam
+    groups: docker 
+    append: yes 
+- name: Add Ubunutu User to Docker group 
+  ansible.builtin.user:
+    name: jenkins
+    groups: docker 
+    append: yes 
+- name: Start Docker Service
+  service: 
+    name: docker
+    state: started
+- name: pip docker
+  pip: 
+    name: docker 
+    executable: pip3 
+- name: Add users to docker group  
+  user:
+    name: Inaam
+    groups: docker 
+    append: True
+- name: Add users to docker group  
+  user:
+    name: jenkins
+    groups: docker 
+    append: True
+
+
+
+
