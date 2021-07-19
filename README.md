@@ -12,7 +12,7 @@
 ## Contents
 - [Brief](#brief)
     - [Requirements](#reqs)
-    - [My Approach](#approach)
+- [Building the Application](#building)
 - [Testing](#test_)
     - [Service 1 test](#test_1)
     - [Service 2 & 3 test](#test_2/3)
@@ -21,13 +21,8 @@
     - [Container level architecture](#cla)
     - [Service-Orientated architecture](#soa) 
     - [Application Infrastructure](#appinf)
-    - [Entity Relationship Diagram](#erd)
 - [Continuous Integration pipeline](#ci)
-    - [CI pipeline - version 1](#ci1)
-    - [CI pipeline - version 2](#ci2)
-
 - [Risk Assessment](#risks)
-- [Project Planning & Tracking](#use_case)
 - [Technologies used](#tech)
 - [Successes](#suc)
 - [Future Improvements](#improve)
@@ -64,9 +59,12 @@ This could also provide a record of any issues or risks that you faced creating 
 -As part of the project, you need to create an Ansible Playbook that will provision the environment that your application needs to run.
 -The project must make use of a reverse proxy to make your application accessible to the user.
 
-<a name="approach"></a>
-### My Approach
+
+<a name="building"></a>
+### Building the Application
 In order to fulfill the requirements of the project I chose to configure a microservice application that would allow services generating random information to communicate and influence the outcomes in other servers. I had a number of diffrent ideas, but eventually settled with creating a Random Holiday Generator. 
+
+##Services 
 
 #### Service 1
 **Service 1** is the Main service. Service 1 communicates with service 2, 3 and 4 and presists data to a MySQL database. The main service will perform a  **GET request on Service 2 and Service 3** and a **POST request on Service 4**. The responses attained from service 2, service 3 & service 4 are used by service 1 to display information to the user via HTML and Jinja2 templating. Furthermore, I configured the databse to allow the user to see the last three holidays that were genearted via a query to the database. 
@@ -275,3 +273,33 @@ class TestResponse(TestBase):
                         data = 'London Paintballing')
                     self.assertEqual(b'200', response.data)
 ```
+
+<a name="arch"></a>
+## Architecture
+A microservice application architectured through building objects & containerisation 
+
+<a name="cla"></a>
+### Container level architecture
+Container level architecture was as follows:
+
+<a name="soa"></a>
+### Service-Orientated architecture 
+Below is the service architecture of my application.
+
+<a name="appinf"></a>
+### Application Infrastructure
+<img src="/documentation/infrastructure.png" alt="" width="100%" height="100%"/>
+
+<a name="ci"></a>
+## Continous Integration pipeline 
+
+
+<a name="tech"></a>
+## Technologies Used
+
+
+<a name="suc"></a>
+## Successes
+
+<a name="improve"></a>
+## Future Improvements
