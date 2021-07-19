@@ -199,10 +199,10 @@ All services were tested using mocking through either requests_mock, unittest.mo
 <a name="test_1"></a>
 ### Service 1 tests
 
-requests_mock library was used to mock and test the service through pytest library. 
+The requests_mock library was used to mock and test the service through pytest library. 
 The 'patch' method was used to return the price by changing the functionality and tested against the return data gained from services 2,3 and 4. 
 
-[test_service_1.py] - image 
+**Service 1 test** complete test can be found at [test_service_1.py](https://github.com/InaamIslam/DevOps_Project2/blob/develop/service1/testing/test_service1.py)
 
 ```bash
 class TestService1(TestBase):
@@ -215,8 +215,63 @@ class TestService1(TestBase):
             self.assertEqual(response.status_code, 200)
             self.assertIn(b'The total cost of your holiday will be 200 GBP', response.data)
 ```
+<a name="test_2/3"></a>
+### Service 2 & 3 tests
 
+Using Unittest.mock and pytest basic tests were done for both Service 2 & Service 3 to see that the return values were randomly generated. 2 different methods were used. 
 
+**Service 2 test**: complete test can be found at [test_service_2.py](https://github.com/InaamIslam/DevOps_Project2/blob/develop/service2/testing/test_service2.py)
 
+```bash
+class TestService2(TestBase):
+    def test_all_cities(self):
+        for _ in range(20):
+            response = self.client.get(url_for('city'))
+            self.assertIn(response.data.decode("utf-8"),["London", "Barcelona", "Milan", "Tokyo"])
 
+class TestService2(TestBase):
+    def test_London(self):
+        with patch('random.choice') as s:
+            s.return_value = 'London'
+            response = self.client.get(url_for('city'))
+            self.assertEqual(response.status_code, 200)
+            self.assertEqual(b'London', response.data)
+```
+**Service 3 test**: complete test can be found at [test_service_3.py](https://github.com/InaamIslam/DevOps_Project2/blob/develop/service3/testing/test_service3.py)
 
+```bash
+class TestService3(TestBase):
+    def test_all_activities(self):
+        for _ in range(20):
+            response = self.client.get(url_for('activity'))
+            self.assertIn(response.data.decode("utf-8"),["Paintballing", "Surfing", "Snorkelling", "Skiing"])
+
+class TestService2(TestBase):
+    def test_paintballing(self):
+        with patch('random.choice') as s:
+            s.return_value = 'Paintballing'
+            response = self.client.get(url_for('activity'))
+            self.assertEqual(response.status_code, 200)
+            self.assertEqual(b'Paintballing', response.data)
+```
+
+<a name="test_4"></a>
+### Service 4 test
+
+The unittest.mock method was again used to get mock values of Service 2 and Service 3 and then check that the return value would be accurate as according to the dictates of the programming. 
+
+**Service 4 test**: complete test can be found at [test_service_4.py](https://github.com/InaamIslam/DevOps_Project2/blob/develop/service4/testing/test_service4.py)
+
+```bash
+class TestResponse(TestBase):
+
+    def test_London_Paintball(self):
+        with patch('requests.get') as a:
+            a.return_value.text = 'London'
+            with patch('random.randrange') as b:
+                    b.return_value = 'Paintballing'
+                    response = self.client.post(
+                        url_for('price'),
+                        data = 'London Paintballing')
+                    self.assertEqual(b'200', response.data)
+```
