@@ -194,6 +194,29 @@ def price():
 
 <a name="test_"></a>
 ## Testing
-The service in my application were tested using Python libaries Pytest and Unittest.mock.
+All services were tested using mocking through either requests_mock, unittest.mock and pytest. 
+
+<a name="test_1"></a>
+### Service 1 tests
+
+requests_mock library was used to mock and test the service through pytest library. 
+The 'patch' method was used to return the price by changing the functionality and tested against the return data gained from services 2,3 and 4. 
+
+[test_service_1.py] - image 
+
+```bash
+class TestService1(TestBase):
+    def test_service1(self):
+        with requests_mock.Mocker() as mocker:
+            mocker.get("http://service_2_api:5001/city", text='London')
+            mocker.get("http://service_3_api:5002/activity", text='Paintballing')
+            mocker.post("http://service_4_api:5003/price", text='200') 
+            response = self.client.get(url_for('index'))
+            self.assertEqual(response.status_code, 200)
+            self.assertIn(b'The total cost of your holiday will be 200 GBP', response.data)
+```
+
+
+
 
 
