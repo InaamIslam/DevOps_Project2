@@ -1,5 +1,5 @@
 #! /bin/bash
-scp -i ~/.ssh/ansible_id_rsa docker-compose.yaml jenkins@ansible:/home/docker-compose.yaml
+scp -i ~/.ssh/ansible_id_rsa docker-compose.yaml jenkins@jenkins:/home/docker-compose.yaml
 
 ssh -i ~/.ssh/ansible_id_rsa jenkins@jenkins
 # << EOF
