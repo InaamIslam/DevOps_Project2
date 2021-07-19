@@ -4,6 +4,9 @@ from application import app, db
 from application.models import holiday_plan
 from sqlalchemy import desc
 
+
+
+
 @app.route('/', methods=['GET','POST'])
 def index():
     #get the name of the city 
