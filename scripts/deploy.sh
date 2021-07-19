@@ -1,7 +1,7 @@
 #! /bin/bash
-scp -i ~/.ssh/id_rsa docker-compose.yaml jenkins@jenkins:/home/docker-compose.yaml
+scp -i ~/.ssh/ansible_id_rsa docker-compose.yaml jenkins@jenkins:/home/docker-compose.yaml
 
-ssh -i ~/.ssh/id_rsa jenkins@jenkins
+ssh -i ~/.ssh/ansible_id_rsa jenkins@jenkins
 << EOF
     export DATABASE_URI=${DATABASE_URI}
     export SECRET_KEY=${SECRET_KEY}
